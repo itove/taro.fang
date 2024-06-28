@@ -4,6 +4,7 @@ page{
     position: relative;
     overflow: hidden;
     .grid{
+      margin-top: 32px;
       --nutui-grid-item-text-font-size: 14px;
       .img{
         width: 37px;
@@ -66,11 +67,6 @@ page{
   }
 }
 .leyou{
-  --nutui-tabs-titles-background-color: #ffffff;
-  --nutui-tabs-titles-item-color: #000000;
-  --nutui-tabs-titles-item-active-color: #ffffff;
-  --nutui-tabs-titles-font-size: 13px;
-  --nutui-tabs-tabpane-padding: 0;
   margin-bottom: 0;
   padding-bottom: 0;
   .nut-tabs-titles-item-text {
@@ -78,17 +74,18 @@ page{
     border-radius: 50px;
     // padding: 10px !important;
   }
-  .nut-tabs-titles-item-active .nut-tabs-titles-item-text {
-    background: #0FB99F;
-    color: #ffffff;
-    border: none;
-  }
   Image{
     height: 90px;
   }
-  .tabs{
-    .tabpane{
-      // height: 635px;
-    }
+}
+.searchbar{
+  position: absolute;
+  top: 176px;
+	--nutui-searchbar-background: none;
+  // --nutui-searchbar-padding: 6px 34px;
+  --nutui-searchbar-input-padding: 0 10px;
+  .nut-searchbar-content{
+    padding: 0px 18px;
+    box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 5%);
   }
 }

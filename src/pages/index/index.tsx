@@ -3,8 +3,7 @@ import { View, Image } from '@tarojs/components'
 import './index.scss'
 import Taro from '@tarojs/taro'
 import { Env } from '../../env'
-import { Grid, NoticeBar, Swiper, Tabs } from '@nutui/nutui-react-taro'
-
+import { Grid, NoticeBar, Swiper, Tabs, SearchBar } from '@nutui/nutui-react-taro'
 
 function gotoNode(id, type = 3) {
   Taro.navigateTo({url: '/pages/node/show?type=' + type + '&id=' + id})
@@ -61,9 +60,9 @@ function TabPane({node, type, index}) {
 
 function SwiperItem({node, index}) {
   return (
-    <Swiper.Item key={index} className="rounded">
+    <Swiper.Item key={index} className="">
     <Image
-    className="w-100 rounded"
+    className="w-100"
     mode="widthFix"
     onClick={() => console.log(index)}
     src={Env.imageUrl + node.image}
@@ -99,14 +98,14 @@ function Index() {
   const onShareTimeline = (res) => {}
 
   const gridItems = [
-    { t: '游在东沟', p: Env.iconUrl + 'grid_1.png', target: '.youzai', url: 'leyou/index', isTab: true, },
-    { t: '住在东沟', p: Env.iconUrl + 'grid_2.png', target: '.zhuzai', url: 'leyou/index', isTab: true, },
-    { t: '吃在东沟', p: Env.iconUrl + 'grid_3.png', target: '.chizai', url: 'leyou/index', isTab: true, },
-    { t: '购在东沟', p: Env.iconUrl + 'grid_4.png', target: '.gouzai', url: 'leyou/index', isTab: true, },
-    { t: '东沟简介', p: Env.iconUrl + 'grid_5.png', target: '', url: 'node/show?id=39&type=4', isTab: false, },
-    { t: '党建文明', p: Env.iconUrl + 'grid_6.png', target: '', url: 'node/index?type=5&region=dangjian', isTab: false, },
-    { t: '文旅要闻', p: Env.iconUrl + 'grid_7.png', target: '', url: 'node/index?type=5&region=wenlv', isTab: false, },
-    { t: '旅行游记', p: Env.iconUrl + 'grid_8.png', target: '', url: 'node/index?type=5&region=youji', isTab: false, },
+    { t: '新房', p: Env.iconUrl + 'grid_1.png', target: '.youzai', url: 'leyou/index', isTab: true, },
+    { t: '二手房', p: Env.iconUrl + 'grid_2.png', target: '.zhuzai', url: 'leyou/index', isTab: true, },
+    { t: '租房', p: Env.iconUrl + 'grid_3.png', target: '.chizai', url: 'leyou/index', isTab: true, },
+    { t: '保障房', p: Env.iconUrl + 'grid_4.png', target: '.gouzai', url: 'leyou/index', isTab: true, },
+    { t: '需求调查', p: Env.iconUrl + 'grid_5.png', target: '', url: 'node/show?id=39&type=4', isTab: false, },
+    { t: '惠民政策', p: Env.iconUrl + 'grid_6.png', target: '', url: 'node/index?type=5&region=dangjian', isTab: false, },
+    { t: '房产资讯', p: Env.iconUrl + 'grid_7.png', target: '', url: 'node/index?type=5&region=wenlv', isTab: false, },
+    { t: '意见反馈', p: Env.iconUrl + 'grid_8.png', target: '', url: 'node/index?type=5&region=youji', isTab: false, },
   ]
 
   useEffect(() => {
@@ -135,12 +134,15 @@ function Index() {
   }, [])
 
   return (
-    <View className="p-1 home">
+    <View className="home">
       <View className="hell">
       </View>
-      <Swiper defaultValue={0} autoPlay indicator className="rounded" height="160">
+      <Swiper defaultValue={0} autoPlay className="" height="230">
         {sliderList}
       </Swiper>
+
+      <SearchBar className="mt-1 searchbar" shape="round" placeholder="新房、二手房、租房、保障房、资讯" />
+
       <Grid columns="4" className="grid">
         {gridList}
       </Grid>
@@ -157,44 +159,25 @@ function Index() {
       // closeable
       />
 
-      <View className="daolan block">
-        <View className="header">
-          智慧导览
-          <img
-            src={Env.iconUrl + 'hill-river-1.png'}
-          />
-        </View>
-        <Image className="w-100 rounded" src={Env.imageUrl + 'daolan.png'} mode="widthFix" onClick={() => Taro.switchTab({url: '/pages/nav/index'})} />
-      </View>
-
       <View className="zoujin block">
-        <View className="header">
-          走进东沟
-          <img
-            src={Env.iconUrl + 'hill-river-1.png'}
-          />
-        </View>
         <View className="wrapper">
           <View className="" onClick={() => gotoNode(jianjie.id, 4)}>
             <Image className="w-100 rounded" src={Env.imageUrl + jianjie.image} mode="aspectFill" />
             <View class="text">
-              东沟简介
-              <p>点击查看></p>
+              保障房申请
             </View>
           </View>
           <View className="col2">
             <View className="" onClick={() => gotoNodeIndex('hongse', 5)}>
               <Image className="w-100 rounded" src={Env.imageUrl + hongsetext.image} mode="aspectFill" />
               <View class="text">
-                东沟文化
-                <p>爱国主义教育基地</p>
+                我要买房
               </View>
             </View>
             <View className="" onClick={() => gotoNodeIndex('history', 5)}>
               <Image className="w-100 rounded" src={Env.imageUrl + historytext.image} mode="aspectFill" />
               <View class="text">
-                东沟历史
-                <p>瞻仰革命圣迹</p>
+                我要卖房
               </View>
             </View>
           </View>
@@ -202,26 +185,19 @@ function Index() {
       </View>
 
       <View className="leyou block">
-        <View className="header">
-          乐游东沟
-          <img
-            src={Env.iconUrl + 'hill-river-1.png'}
-          />
-        </View>
-
         <Tabs
           value={tab1value}
           autoHeight={true}
           onChange={(value) => {
             setTab1value(value)
           }}
-          activeType="button"
           className="tabs"
           >
-          <Tabs.TabPane className="tabpane" title="游在东沟"> {youList} </Tabs.TabPane>
-          <Tabs.TabPane className="tabpane" title="住在东沟"> {zhuList} </Tabs.TabPane>
-          <Tabs.TabPane className="tabpane" title="吃在东沟"> {chiList} </Tabs.TabPane>
-          <Tabs.TabPane className="tabpane" title="购在东沟"> {gouList} </Tabs.TabPane>
+          <Tabs.TabPane className="tabpane" title="推荐"> {youList} </Tabs.TabPane>
+          <Tabs.TabPane className="tabpane" title="新房"> {zhuList} </Tabs.TabPane>
+          <Tabs.TabPane className="tabpane" title="二手房"> {chiList} </Tabs.TabPane>
+          <Tabs.TabPane className="tabpane" title="租房"> {gouList} </Tabs.TabPane>
+          <Tabs.TabPane className="tabpane" title="保障房"> {gouList} </Tabs.TabPane>
         </Tabs>
       </View>
 
