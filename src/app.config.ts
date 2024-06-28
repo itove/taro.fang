@@ -38,6 +38,11 @@ export default defineAppConfig({
         "selectedIconPath": './icons/hill-river-fill.png'
       },
       {
+        "pagePath": "pages/node/index",
+        "iconPath": './icon/plus-circle.png',
+        "selectedIconPath": './icon/plus-circle-fill.png'
+      },
+      {
         "pagePath": "pages/msg/index",
         "text": "消息",
         "iconPath": './icons/pavilion.png',
