@@ -21,38 +21,38 @@ export default defineAppConfig({
   tabBar: {
     // custom: true,
     color: '#808080',
-    selectedColor: '#0FB99F',
+    selectedColor: '#3d67c9',
     backgroundColor: '#FFFFFF',
     borderStyle: 'white',
     list: [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": './icons/hill.png',
-        "selectedIconPath": './icons/hill-fill.png',
+        "iconPath": './icons/home.0.png',
+        "selectedIconPath": './icons/home.1.png',
       },
       {
         "pagePath": "pages/node/index",
         "text": "资讯",
-        "iconPath": './icons/hill-river.png',
-        "selectedIconPath": './icons/hill-river-fill.png'
+        "iconPath": './icons/faxian.0.png',
+        "selectedIconPath": './icons/faxian.1.png'
       },
       {
-        "pagePath": "pages/node/index",
-        "iconPath": './icon/plus-circle.png',
-        "selectedIconPath": './icon/plus-circle-fill.png'
+        "pagePath": "pages/node/show",
+        "iconPath": './icons/plus-circle.png',
+        "selectedIconPath": './icons/plus-circle-fill.png'
       },
       {
         "pagePath": "pages/msg/index",
         "text": "消息",
-        "iconPath": './icons/pavilion.png',
-        "selectedIconPath": './icons/pavilion-fill.png'
+        "iconPath": './icons/message.0.png',
+        "selectedIconPath": './icons/message.1.png'
       },
       {
         "pagePath": "pages/me/index",
         "text": "我的",
-        "iconPath": './icons/user.png',
-        "selectedIconPath": './icons/user-fill.png'
+        "iconPath": './icons/myself.0.png',
+        "selectedIconPath": './icons/myself.1.png'
       },
     ]
   },
