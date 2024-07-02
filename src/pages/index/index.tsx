@@ -4,6 +4,8 @@ import './index.scss'
 import Taro from '@tarojs/taro'
 import { Env } from '../../env'
 import { Grid, NoticeBar, Swiper, Tabs, SearchBar } from '@nutui/nutui-react-taro'
+import House from '../../images/house.jpg'
+import H1 from '../../images/h1.jpg'
 
 function gotoNode(id, type = 3) {
   Taro.navigateTo({url: '/pages/node/show?type=' + type + '&id=' + id})
@@ -65,7 +67,7 @@ function SwiperItem({node, index}) {
     className="w-100"
     mode="widthFix"
     onClick={() => console.log(index)}
-    src={Env.imageUrl + node.image}
+    src={H1}
     alt=""
     />
     </Swiper.Item>
@@ -98,9 +100,9 @@ function Index() {
   const onShareTimeline = (res) => {}
 
   const gridItems = [
-    { t: '新房', p: Env.iconUrl + 'grid_1.png', target: '.youzai', url: 'leyou/index', isTab: true, },
+    { t: '新房', p: Env.iconUrl + 'grid_2.png', target: '.youzai', url: 'leyou/index', isTab: true, },
     { t: '二手房', p: Env.iconUrl + 'grid_2.png', target: '.zhuzai', url: 'leyou/index', isTab: true, },
-    { t: '租房', p: Env.iconUrl + 'grid_3.png', target: '.chizai', url: 'leyou/index', isTab: true, },
+    { t: '租房', p: Env.iconUrl + 'grid_4.png', target: '.chizai', url: 'leyou/index', isTab: true, },
     { t: '保障房', p: Env.iconUrl + 'grid_4.png', target: '.gouzai', url: 'leyou/index', isTab: true, },
     { t: '需求调查', p: Env.iconUrl + 'grid_5.png', target: '', url: 'node/show?id=39&type=4', isTab: false, },
     { t: '惠民政策', p: Env.iconUrl + 'grid_6.png', target: '', url: 'node/index?type=5&region=dangjian', isTab: false, },
@@ -117,7 +119,8 @@ function Index() {
       console.log(res)
 
       setSliderList(data.slider.map((node, index) => <SwiperItem node={node} index={index} />))
-      setTongzhi(data.tongzhi.map((node, index) => <div onClick={() => gotoNode(node.id, 5)}>{node.title}</div> ))
+      // setTongzhi(data.tongzhi.map((node, index) => <div onClick={() => gotoNode(node.id, 5)}>{node.title}</div> ))
+      setTongzhi(['测试通知公告1', '测试通知公告2'])
       setYouList(data.youzai.map((node, index) => <TabPane node={node} type={0} index={index} />))
       setZhuList(data.zhuzai.map((node, index) => <TabPane node={node} type={1} index={index} />))
       setChiList(data.chizai.map((node, index) => <TabPane node={node} type={2} index={index} />))
@@ -162,20 +165,20 @@ function Index() {
       <View className="zoujin block">
         <View className="wrapper">
           <View className="" onClick={() => gotoNode(jianjie.id, 4)}>
-            <Image className="w-100 rounded" src={Env.imageUrl + jianjie.image} mode="aspectFill" />
+            <Image className="w-100 rounded" src={House} mode="aspectFill" />
             <View class="text">
               保障房申请
             </View>
           </View>
           <View className="col2">
             <View className="" onClick={() => gotoNodeIndex('hongse', 5)}>
-              <Image className="w-100 rounded" src={Env.imageUrl + hongsetext.image} mode="aspectFill" />
+              <Image className="w-100 rounded" src={House} mode="aspectFill" />
               <View class="text">
                 我要买房
               </View>
             </View>
             <View className="" onClick={() => gotoNodeIndex('history', 5)}>
-              <Image className="w-100 rounded" src={Env.imageUrl + historytext.image} mode="aspectFill" />
+              <Image className="w-100 rounded" src={House} mode="aspectFill" />
               <View class="text">
                 我要卖房
               </View>
